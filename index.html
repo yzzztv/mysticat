@@ -1,205 +1,227 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mysti Cat</title>
+  <meta charset="UTF-8">
+  <title>Mysti Cat Token</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="favicon.png" type="image/png">
   <style>
-    :root {
-      --bg: #d8fcdc;
-      --text: #2b2b2b;
-      --accent: #6f42c1;
+    * {
+      box-sizing: border-box;
     }
+
     body {
       margin: 0;
-      padding: 0;
-      font-family: sans-serif;
-      background-color: var(--bg);
-      color: var(--text);
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #d3f0d4;
+      color: #333;
       overflow-x: hidden;
     }
+
     header {
-      position: relative;
       text-align: center;
-    }
-    header img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-    header h1 {
-      position: absolute;
-      top: 40%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      color: white;
-      font-size: 2em;
-    }
-    .btns {
-      position: absolute;
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      gap: 10px;
-    }
-    .btns a {
-      background-color: var(--accent);
-      color: white;
-      padding: 8px 14px;
-      text-decoration: none;
-      border-radius: 8px;
+      padding: 80px 20px 20px;
+      color: #fff;
+      text-shadow: 1px 1px 2px #000;
+      background: url('bghead.jpg') no-repeat center center;
+      background-size: cover;
     }
 
-    .section {
+    .buttons {
+      margin: 20px auto;
       display: flex;
+      justify-content: center;
+      gap: 15px;
       flex-wrap: wrap;
+    }
+
+    .buttons a {
+      background-color: #6a4fc2;
+      color: #fff;
+      text-decoration: none;
+      padding: 12px 24px;
+      border-radius: 10px;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    .buttons a:hover {
+      background-color: #4b36a8;
+    }
+
+    section {
+      margin: 40px 5%;
+    }
+
+    .intro, .image-text-alt, .tokenomics-content {
+      display: flex;
       align-items: center;
-      justify-content: space-between;
-      padding: 2rem;
-      gap: 2rem;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
     }
 
-    .section:nth-child(even) {
-      flex-direction: row-reverse;
-    }
-
-    .text {
-      flex: 1 1 300px;
-      animation: fadeIn 1s ease-in-out forwards;
-      opacity: 0;
-    }
-
-    .image img {
-      width: 100%;
+    .intro img, .image-text-alt img, .tokenomics-content img {
+      width: auto;
+      max-width: 100%;
       height: auto;
-      max-height: 500px;
       object-fit: contain;
-      animation: fadeIn 1s ease-in-out forwards;
-      opacity: 0;
     }
 
-    .tokenomic {
-      padding: 2rem;
+    .intro div, .image-text-alt div, .tokenomics-content div {
+      flex: 1;
+      min-width: 280px;
+    }
+
+    .tokenomics {
+      background: rgba(255, 255, 255, 0.85);
+      border-radius: 15px;
+      padding: 20px;
       text-align: center;
+    }
+
+    .carousel-wrapper {
+      overflow: hidden;
+      width: 100%;
     }
 
     .carousel {
       display: flex;
-      width: 100%;
-      overflow: hidden;
-      position: relative;
-      margin-top: 2rem;
-    }
-
-    .carousel-track {
-      display: flex;
-      animation: scroll 30s linear infinite;
+      animation: scroll-left 30s linear infinite;
+      width: fit-content;
     }
 
     .carousel img {
-      width: 200px;
-      height: auto;
-      margin-right: 20px;
+      max-height: 200px;
+      margin: 0 10px;
+      border-radius: 10px;
       flex-shrink: 0;
     }
 
-    @keyframes scroll {
+    @keyframes scroll-left {
       0% { transform: translateX(0); }
-      100% { transform: translateX(-100%); }
+      100% { transform: translateX(-50%); }
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
+    .closing {
+      text-align: center;
+      font-size: 1.2em;
+      font-weight: bold;
     }
 
-    @media (max-width: 768px) {
-      .section {
-        flex-direction: column !important;
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #f2f2f2;
+    }
+
+    /* Fade-in effect */
+    .fade-in-section {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 1s ease-out, transform 1s ease-out;
+      will-change: opacity, transform;
+    }
+
+    .fade-in-section.is-visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    @media screen and (max-width: 768px) {
+      .intro, .tokenomics-content, .image-text-alt {
+        flex-direction: column;
         text-align: center;
       }
-      .carousel img {
-        width: 150px;
+
+      .carousel {
+        animation-duration: 60s;
       }
     }
   </style>
 </head>
 <body>
+  <header class="fade-in-section">
+    <h1>Mysti Cat</h1>
+    <p>A combination of magic and technology—Mysti Cat stands as a symbol of the power of community and innovation.</p>
+    <div class="buttons">
+      <a href="https://x.com/Mystii_cat">Twitter</a>
+      <a href="https://t.me/mysti_catt">Telegram</a>
+      <a href="https://dexscreener.com">Dexscreener</a>
+    </div>
+  </header>
 
-<header>
-  <img src="hero.jpg" alt="Mysti Cat" />
-  <h1>Mysti Cat</h1>
-  <div class="btns">
-    <a href="#">Twitter</a>
-    <a href="#">Telegram</a>
-    <a href="#">Dexscreener</a>
-  </div>
-</header>
+  <section class="intro fade-in-section">
+    <div>
+      <h2>Welcome to the Magical World of Mysti Cat</h2>
+      <p>Blending mystery, code, and community—Mysti Cat isn’t just a token, it's a movement. Trusted by early believers, powered by decentralized dreams. As the world shifts toward a future driven by innovation, Mysti Cat leads the charge with its unique blend of charm and cutting-edge blockchain vision. Whether you're a seasoned trader or a curious newcomer, Mysti Cat welcomes you to a world where imagination meets technology.</p>
+    </div>
+    <img src="1.jpg" alt="Mysti Cat Intro Image">
+  </section>
 
-<section class="section">
-  <div class="text">
-    <h2>Welcome to the Magical World of Mysti Cat</h2>
-    <p>
-      Blending mystery, code, and community—Mysti Cat isn’t just a token, it's a movement. Trusted by early believers and powered by decentralized dreams, Mysti Cat represents the perfect balance of magic and technology. As the world shifts toward a more connected and innovative future, Mysti Cat stands at the forefront, leading the charge with vision, creativity, and blockchain power. Whether you're a seasoned trader or a curious newcomer, Mysti Cat opens the door to a universe where imagination meets limitless possibilities.
-    </p>
-  </div>
-  <div class="image">
-    <img src="1.jpg" alt="Mysti Cat Companion" />
-  </div>
-</section>
+  <section class="image-text-alt fade-in-section">
+    <img src="2.jpg" alt="Mysti Cat Image">
+    <div>
+      <h2>Why Mysti Cat?</h2>
+      <p>Mysti Cat isn't another meme—it's a vibe. Backed by a team that values transparency, a community that thrives, and tech that delivers magic in every block. With each interaction, transaction, and meme, the Mysti Cat universe grows stronger—built on the power of belief and driven by a vision for collective success in a decentralized world.</p>
+    </div>
+  </section>
 
-<section class="section">
-  <div class="text">
-    <h2>Explore with Mysti Cat</h2>
-    <p>
-      Join a growing community of visionaries, developers, and dreamers who believe in the future of decentralized innovation. Mysti Cat isn’t just a token—it’s a symbol of freedom, creativity, and shared discovery.
-    </p>
-  </div>
-  <div class="image">
-    <img src="2.jpg" alt="Mysti Cat Adventure" />
-  </div>
-</section>
+  <section class="tokenomics fade-in-section">
+    <div class="tokenomics-content">
+      <img src="3.jpg" alt="Mysti Cat Tokenomics">
+      <div>
+        <h2>Tokenomics</h2>
+        <p><strong>Name:</strong> Mysti Cat</p>
+        <p><strong>Ticker:</strong> $MCAT</p>
+        <p><strong>Total Supply:</strong> 1,000,000,000</p>
+        <p><strong>CA:</strong> Will be revealed soon</p>
+      </div>
+    </div>
+  </section>
 
-<section class="tokenomic">
-  <h2>Tokenomic</h2>
-  <p>Total Supply: 1,000,000,000</p>
-  <p>Liquidity Locked: 100%</p>
-  <p>Tax: 0%</p>
-</section>
+  <section class="carousel-wrapper fade-in-section">
+    <div class="carousel">
+      <img src="1.jpg" alt="Mysti Cat Collection 1">
+      <img src="2.jpg" alt="Mysti Cat Collection 2">
+      <img src="3.jpg" alt="Mysti Cat Collection 3">
+      <img src="4.jpg" alt="Mysti Cat Collection 4">
+      <img src="5.jpg" alt="Mysti Cat Collection 5">
+      <img src="6.jpg" alt="Mysti Cat Collection 6">
+      <!-- Repeat for seamless scroll -->
+      <img src="1.jpg" alt="Mysti Cat Collection 1">
+      <img src="2.jpg" alt="Mysti Cat Collection 2">
+      <img src="3.jpg" alt="Mysti Cat Collection 3">
+      <img src="4.jpg" alt="Mysti Cat Collection 4">
+      <img src="5.jpg" alt="Mysti Cat Collection 5">
+      <img src="6.jpg" alt="Mysti Cat Collection 6">
+    </div>
+  </section>
 
-<section class="carousel">
-  <div class="carousel-track">
-    <img src="1.jpg" alt="NFT 1">
-    <img src="2.jpg" alt="NFT 2">
-    <img src="3.jpg" alt="NFT 3">
-    <img src="4.jpg" alt="NFT 4">
-    <img src="5.jpg" alt="NFT 5">
-    <img src="6.jpg" alt="NFT 6">
-    <!-- Loop ulang untuk scrolling tanpa batas -->
-    <img src="1.jpg" alt="NFT 1">
-    <img src="2.jpg" alt="NFT 2">
-    <img src="3.jpg" alt="NFT 3">
-    <img src="4.jpg" alt="NFT 4">
-    <img src="5.jpg" alt="NFT 5">
-    <img src="6.jpg" alt="NFT 6">
-  </div>
-</section>
+  <section class="closing fade-in-section">
+    <p>Don’t miss the magic. Join the Mysti Cat journey today and be part of something legendary. The next chapter is written by YOU.</p>
+  </section>
 
-<script>
-  // Fade-in on scroll
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.style.opacity = 1;
-      }
+  <footer class="fade-in-section">
+    &copy; 2025 MystiCat. All Rights Reserved.
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const faders = document.querySelectorAll('.fade-in-section');
+      const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+
+      faders.forEach(section => {
+        observer.observe(section);
+      });
     });
-  }, { threshold: 0.1 });
-
-  document.querySelectorAll('.text, .image img').forEach(el => {
-    observer.observe(el);
-  });
-</script>
-
+  </script>
 </body>
 </html>
