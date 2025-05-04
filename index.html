@@ -3,13 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <title>Mysti Cat Token</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="favicon.png" type="image/png">
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
       background-color: #d3f0d4;
       color: #333;
+      overflow-x: hidden;
     }
 
     header {
@@ -49,78 +55,81 @@
       justify-content: center;
       gap: 30px;
       flex-wrap: wrap;
-      margin: 40px 10%;
+      margin: 40px 5%;
     }
 
     .intro img, .image-text-alt img, .tokenomics-content img {
-      max-width: 300px;
-      border-radius: 12px;
+      width: auto;
+      max-width: 100%;
+      height: auto;
+      object-fit: contain;
+      flex-shrink: 1;
+    }
+
+    .intro, .image-text-alt {
+      align-items: stretch;
     }
 
     .intro div, .image-text-alt div, .tokenomics-content div {
-      max-width: 500px;
+      flex: 1;
+      min-width: 280px;
     }
 
     .tokenomics {
       background: rgba(255, 255, 255, 0.85);
-      margin: 60px 10%;
+      margin: 60px 5%;
       border-radius: 15px;
       padding: 20px;
       text-align: center;
     }
 
+    .carousel-wrapper {
+      overflow: hidden;
+      width: 100%;
+    }
+
     .carousel {
       display: flex;
-      justify-content: center;
-      gap: 15px;
-      overflow-x: auto;
-      padding: 20px;
-      scroll-behavior: smooth;
+      animation: scroll-left 30s linear infinite;
     }
 
     .carousel img {
       max-height: 200px;
+      margin: 0 10px;
       border-radius: 10px;
+      flex-shrink: 0;
+    }
+
+    @keyframes scroll-left {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    .carousel-inner {
+      display: flex;
     }
 
     .closing {
       text-align: center;
-      margin: 50px 10%;
+      margin: 50px 5%;
       font-size: 1.2em;
       font-weight: bold;
     }
 
-    /* Responsive adjustments */
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #f2f2f2;
+    }
+
     @media screen and (max-width: 768px) {
       .intro, .tokenomics-content, .image-text-alt {
         flex-direction: column;
         text-align: center;
       }
 
-      .intro img, .image-text-alt img, .tokenomics-content img {
-        max-width: 90%;
-      }
-
-      .intro div, .tokenomics-content div, .image-text-alt div {
-        max-width: 100%;
-      }
-
-      .buttons {
-        flex-direction: column;
-        gap: 10px;
-      }
-
-      header {
-        padding: 60px 10px 20px;
-      }
-
       .carousel {
-        padding: 10px;
-      }
-
-      .carousel img {
-        max-width: 90%;
-        margin: 0 auto;
+        animation-duration: 60s;
       }
     }
   </style>
@@ -139,7 +148,7 @@
   <section class="intro">
     <div>
       <h2>Welcome to the Magical World of Mysti Cat</h2>
-      <p>Blending mystery, code, and community—Mysti Cat isn’t just a token, it's a movement. Trusted by early believers, powered by decentralized dreams.</p>
+      <p>Blending mystery, code, and community—Mysti Cat isn’t just a token, it's a movement. Trusted by early believers, powered by decentralized dreams. As the world shifts toward a future driven by innovation, Mysti Cat leads the charge with its unique blend of charm and cutting-edge blockchain vision. Whether you're a seasoned trader or a curious newcomer, Mysti Cat welcomes you to a world where imagination meets technology.</p>
     </div>
     <img src="1.jpg" alt="Mysti Cat Intro Image">
   </section>
@@ -148,7 +157,7 @@
     <img src="2.jpg" alt="Mysti Cat Image">
     <div>
       <h2>Why Mysti Cat?</h2>
-      <p>Mysti Cat isn't another meme—it's a vibe. Backed by a team that values transparency, a community that thrives, and tech that delivers magic in every block.</p>
+      <p>Mysti Cat isn't another meme—it's a vibe. Backed by a team that values transparency, a community that thrives, and tech that delivers magic in every block. With each interaction, transaction, and meme, the Mysti Cat universe grows stronger—built on the power of belief and driven by a vision for collective success in a decentralized world.</p>
     </div>
   </section>
 
@@ -165,20 +174,32 @@
     </div>
   </section>
 
-  <section class="carousel">
-    <img src="1.jpg" alt="Mysti Cat Collection 1">
-    <img src="2.jpg" alt="Mysti Cat Collection 2">
-    <img src="3.jpg" alt="Mysti Cat Collection 3">
-    <img src="4.jpg" alt="Mysti Cat Collection 4">
-    <img src="5.jpg" alt="Mysti Cat Collection 5">
-    <img src="6.jpg" alt="Mysti Cat Collection 6">
+  <section class="carousel-wrapper">
+    <div class="carousel">
+      <div class="carousel-inner">
+        <img src="1.jpg" alt="Mysti Cat Collection 1">
+        <img src="2.jpg" alt="Mysti Cat Collection 2">
+        <img src="3.jpg" alt="Mysti Cat Collection 3">
+        <img src="4.jpg" alt="Mysti Cat Collection 4">
+        <img src="5.jpg" alt="Mysti Cat Collection 5">
+        <img src="6.jpg" alt="Mysti Cat Collection 6">
+        <!-- repeat for seamless scroll -->
+        <img src="1.jpg" alt="Mysti Cat Collection 1">
+        <img src="2.jpg" alt="Mysti Cat Collection 2">
+        <img src="3.jpg" alt="Mysti Cat Collection 3">
+        <img src="4.jpg" alt="Mysti Cat Collection 4">
+        <img src="5.jpg" alt="Mysti Cat Collection 5">
+        <img src="6.jpg" alt="Mysti Cat Collection 6">
+      </div>
+    </div>
   </section>
 
   <section class="closing">
     <p>Don’t miss the magic. Join the Mysti Cat journey today and be part of something legendary. The next chapter is written by YOU.</p>
   </section>
-<footer>
-  &copy; 2025 JestrDog. All Rights Reserved.
-</footer>
+
+  <footer>
+    &copy; 2025 MystiCat. All Rights Reserved.
+  </footer>
 </body>
 </html>
