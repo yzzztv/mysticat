@@ -6,7 +6,61 @@
   <title>Mysti Cat Token</title>
   <link rel="icon" href="favicon.png" type="image/png">
   <style>
-    body { background: #e0ffe0; font-family: sans-serif; padding: 10px; }
+        body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #d3f0d4;
+      color: #333;
+    }
+
+    header {
+      text-align: center;
+      padding: 80px 20px 20px;
+      color: #fff;
+      text-shadow: 1px 1px 2px #000;
+      background: url('bghead.jpg') no-repeat center center;
+      background-size: cover;
+    }
+
+    .buttons {
+      margin: 20px auto;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .buttons a {
+      background-color: #6a4fc2;
+      color: #fff;
+      text-decoration: none;
+      padding: 12px 24px;
+      border-radius: 10px;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    .buttons a:hover {
+      background-color: #4b36a8;
+    }
+
+    .intro, .image-text-alt, .tokenomics-content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+      margin: 40px 10%;
+    }
+
+    .intro img, .image-text-alt img, .tokenomics-content img {
+      max-width: 300px;
+      border-radius: 12px;
+    }
+
+    .intro div, .image-text-alt div, .tokenomics-content div {
+      max-width: 500px;
+    }
 
     .row {
       display: flex;
