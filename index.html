@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="UTF-8">
   <title>Mysti Cat Token</title>
   <link rel="icon" href="favicon.png" type="image/png">
   <style>
-        body {
+    body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
       background-color: #d3f0d4;
@@ -62,64 +61,72 @@
       max-width: 500px;
     }
 
-    .row {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-bottom: 30px;
-    }
-
-    .row.reverse {
-      flex-direction: row-reverse;
-    }
-
-    .row img {
-      width: 45%;
-      border-radius: 10px;
-    }
-
-    .text {
-      width: 50%;
-      padding: 10px;
+    .tokenomics {
+      background: rgba(255, 255, 255, 0.85);
+      margin: 60px 10%;
+      border-radius: 15px;
+      padding: 20px;
+      text-align: center;
     }
 
     .carousel {
       display: flex;
+      justify-content: center;
+      gap: 15px;
       overflow-x: auto;
-      gap: 10px;
-      scroll-snap-type: x mandatory;
-      padding: 10px 0;
+      padding: 20px;
+      scroll-behavior: smooth;
     }
 
     .carousel img {
-      width: 200px;
-      height: auto;
+      max-height: 200px;
       border-radius: 10px;
-      scroll-snap-align: start;
-      flex-shrink: 0;
-      transition: transform 0.5s ease-in-out;
     }
 
-    .tokenomics {
-      width: 50%;
-      padding: 10px;
+    .closing {
+      text-align: center;
+      margin: 50px 10%;
+      font-size: 1.2em;
+      font-weight: bold;
     }
 
-    @media screen and (max-width: 600px) {
-      .row, .row.reverse {
+    /* Responsive adjustments */
+    @media screen and (max-width: 768px) {
+      .intro, .tokenomics-content, .image-text-alt {
         flex-direction: column;
+        text-align: center;
       }
 
-      .row img, .text, .tokenomics {
-        width: 100%;
-        text-align: center;
+      .intro img, .image-text-alt img, .tokenomics-content img {
+        max-width: 90%;
+      }
+
+      .intro div, .tokenomics-content div, .image-text-alt div {
+        max-width: 100%;
+      }
+
+      .buttons {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      header {
+        padding: 60px 10px 20px;
+      }
+
+      .carousel {
+        padding: 10px;
+      }
+
+      .carousel img {
+        max-width: 90%;
+        margin: 0 auto;
       }
     }
   </style>
 </head>
 <body>
-    <header>
+  <header>
     <h1>Mysti Cat</h1>
     <p>A combination of magic and technology—Mysti Cat stands as a symbol of the power of community and innovation.</p>
     <div class="buttons">
@@ -127,54 +134,51 @@
       <a href="https://t.me/mysti_catt">Telegram</a>
       <a href="https://dexscreener.com">Dexscreener</a>
     </div>
-    </header>
-  <!-- Hero -->
-  <div class="row">
-    <img src="1.jpg" alt="Mysti Cat">
-    <div class="text">
-      <h3>Why Mysti Cat?</h3>
-      <p>Mysti Cat isn’t another meme—it’s a vibe. Backed by a team that values transparency, a community that thrives, and tech that delivers magic in every block.</p>
+  </header>
+
+  <section class="intro">
+    <div>
+      <h2>Welcome to the Magical World of Mysti Cat</h2>
+      <p>Blending mystery, code, and community—Mysti Cat isn’t just a token, it's a movement. Trusted by early believers, powered by decentralized dreams.</p>
     </div>
-  </div>
+    <img src="1.jpg" alt="Mysti Cat Intro Image">
+  </section>
 
-  <!-- Section 2 -->
-  <div class="row reverse">
-    <img src="2.jpg" alt="Mysti Cat Power">
-    <div class="text">
-      <p>This is more than magic—it’s movement.</p>
+  <section class="image-text-alt">
+    <img src="2.jpg" alt="Mysti Cat Image">
+    <div>
+      <h2>Why Mysti Cat?</h2>
+      <p>Mysti Cat isn't another meme—it's a vibe. Backed by a team that values transparency, a community that thrives, and tech that delivers magic in every block.</p>
     </div>
-  </div>
+  </section>
 
-  <!-- Tokenomics -->
-  <div class="row">
-    <img src="3.jpg" alt="Mysti Chart">
-    <div class="tokenomics">
-      <h3>Tokenomics</h3>
-      <ul>
-        <li>Name : Mysti Cat</li>
-        <li>Ticker : $MCAT</li>
-        <li>Supply : 1,000,000,000</li>
-        <li>Contract : 10%</li>
-      </ul>
+  <section class="tokenomics">
+    <div class="tokenomics-content">
+      <img src="3.jpg" alt="Mysti Cat Tokenomics">
+      <div>
+        <h2>Tokenomics</h2>
+        <p><strong>Name:</strong> Mysti Cat</p>
+        <p><strong>Ticker:</strong> $MCAT</p>
+        <p><strong>Total Supply:</strong> 1,000,000,000</p>
+        <p><strong>CA:</strong> Will be revealed soon</p>
+      </div>
     </div>
-  </div>
+  </section>
 
-  <!-- Gallery Carousel -->
-  <div class="carousel">
-    <img src="1.jpg" alt="Gallery 1">
-    <img src="2.jpg" alt="Gallery 2">
-    <img src="3.jpg" alt="Gallery 3">
-    <img src="4.jpg" alt="Gallery 4">
-    <img src="5.jpg" alt="Gallery 5">
-    <img src="6.jpg" alt="Gallery 6">
-  </div>
+  <section class="carousel">
+    <img src="1.jpg" alt="Mysti Cat Collection 1">
+    <img src="2.jpg" alt="Mysti Cat Collection 2">
+    <img src="3.jpg" alt="Mysti Cat Collection 3">
+    <img src="4.jpg" alt="Mysti Cat Collection 4">
+    <img src="5.jpg" alt="Mysti Cat Collection 5">
+    <img src="6.jpg" alt="Mysti Cat Collection 6">
+  </section>
 
-  <!-- Penutup -->
-  <div class="text" style="text-align:center;">
-    <p>Join the vibe. Be a part of Mysti Cat’s magic journey today.</p>
-  </div>
+  <section class="closing">
+    <p>Don’t miss the magic. Join the Mysti Cat journey today and be part of something legendary. The next chapter is written by YOU.</p>
+  </section>
 <footer>
-  &copy; 2025 MystiCat. All Rights Reserved.
+  &copy; 2025 JestrDog. All Rights Reserved.
 </footer>
 </body>
 </html>
