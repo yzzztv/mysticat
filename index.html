@@ -49,13 +49,16 @@
       background-color: #4b36a8;
     }
 
+    section {
+      margin: 40px 5%;
+    }
+
     .intro, .image-text-alt, .tokenomics-content {
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 30px;
       flex-wrap: wrap;
-      margin: 40px 5%;
     }
 
     .intro img, .image-text-alt img, .tokenomics-content img {
@@ -63,11 +66,6 @@
       max-width: 100%;
       height: auto;
       object-fit: contain;
-      flex-shrink: 1;
-    }
-
-    .intro, .image-text-alt {
-      align-items: stretch;
     }
 
     .intro div, .image-text-alt div, .tokenomics-content div {
@@ -77,7 +75,6 @@
 
     .tokenomics {
       background: rgba(255, 255, 255, 0.85);
-      margin: 60px 5%;
       border-radius: 15px;
       padding: 20px;
       text-align: center;
@@ -91,6 +88,7 @@
     .carousel {
       display: flex;
       animation: scroll-left 30s linear infinite;
+      width: fit-content;
     }
 
     .carousel img {
@@ -105,13 +103,8 @@
       100% { transform: translateX(-50%); }
     }
 
-    .carousel-inner {
-      display: flex;
-    }
-
     .closing {
       text-align: center;
-      margin: 50px 5%;
       font-size: 1.2em;
       font-weight: bold;
     }
@@ -120,6 +113,19 @@
       text-align: center;
       padding: 20px;
       background-color: #f2f2f2;
+    }
+
+    /* Fade-in effect */
+    .fade-in-section {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 1s ease-out, transform 1s ease-out;
+      will-change: opacity, transform;
+    }
+
+    .fade-in-section.is-visible {
+      opacity: 1;
+      transform: none;
     }
 
     @media screen and (max-width: 768px) {
@@ -135,7 +141,7 @@
   </style>
 </head>
 <body>
-  <header>
+  <header class="fade-in-section">
     <h1>Mysti Cat</h1>
     <p>A combination of magic and technology—Mysti Cat stands as a symbol of the power of community and innovation.</p>
     <div class="buttons">
@@ -145,7 +151,7 @@
     </div>
   </header>
 
-  <section class="intro">
+  <section class="intro fade-in-section">
     <div>
       <h2>Welcome to the Magical World of Mysti Cat</h2>
       <p>Blending mystery, code, and community—Mysti Cat isn’t just a token, it's a movement. Trusted by early believers, powered by decentralized dreams. As the world shifts toward a future driven by innovation, Mysti Cat leads the charge with its unique blend of charm and cutting-edge blockchain vision. Whether you're a seasoned trader or a curious newcomer, Mysti Cat welcomes you to a world where imagination meets technology.</p>
@@ -153,7 +159,7 @@
     <img src="1.jpg" alt="Mysti Cat Intro Image">
   </section>
 
-  <section class="image-text-alt">
+  <section class="image-text-alt fade-in-section">
     <img src="2.jpg" alt="Mysti Cat Image">
     <div>
       <h2>Why Mysti Cat?</h2>
@@ -161,7 +167,7 @@
     </div>
   </section>
 
-  <section class="tokenomics">
+  <section class="tokenomics fade-in-section">
     <div class="tokenomics-content">
       <img src="3.jpg" alt="Mysti Cat Tokenomics">
       <div>
@@ -174,32 +180,48 @@
     </div>
   </section>
 
-  <section class="carousel-wrapper">
+  <section class="carousel-wrapper fade-in-section">
     <div class="carousel">
-      <div class="carousel-inner">
-        <img src="1.jpg" alt="Mysti Cat Collection 1">
-        <img src="2.jpg" alt="Mysti Cat Collection 2">
-        <img src="3.jpg" alt="Mysti Cat Collection 3">
-        <img src="4.jpg" alt="Mysti Cat Collection 4">
-        <img src="5.jpg" alt="Mysti Cat Collection 5">
-        <img src="6.jpg" alt="Mysti Cat Collection 6">
-        <!-- repeat for seamless scroll -->
-        <img src="1.jpg" alt="Mysti Cat Collection 1">
-        <img src="2.jpg" alt="Mysti Cat Collection 2">
-        <img src="3.jpg" alt="Mysti Cat Collection 3">
-        <img src="4.jpg" alt="Mysti Cat Collection 4">
-        <img src="5.jpg" alt="Mysti Cat Collection 5">
-        <img src="6.jpg" alt="Mysti Cat Collection 6">
-      </div>
+      <img src="1.jpg" alt="Mysti Cat Collection 1">
+      <img src="2.jpg" alt="Mysti Cat Collection 2">
+      <img src="3.jpg" alt="Mysti Cat Collection 3">
+      <img src="4.jpg" alt="Mysti Cat Collection 4">
+      <img src="5.jpg" alt="Mysti Cat Collection 5">
+      <img src="6.jpg" alt="Mysti Cat Collection 6">
+      <!-- Repeat for seamless scroll -->
+      <img src="1.jpg" alt="Mysti Cat Collection 1">
+      <img src="2.jpg" alt="Mysti Cat Collection 2">
+      <img src="3.jpg" alt="Mysti Cat Collection 3">
+      <img src="4.jpg" alt="Mysti Cat Collection 4">
+      <img src="5.jpg" alt="Mysti Cat Collection 5">
+      <img src="6.jpg" alt="Mysti Cat Collection 6">
     </div>
   </section>
 
-  <section class="closing">
+  <section class="closing fade-in-section">
     <p>Don’t miss the magic. Join the Mysti Cat journey today and be part of something legendary. The next chapter is written by YOU.</p>
   </section>
 
-  <footer>
+  <footer class="fade-in-section">
     &copy; 2025 MystiCat. All Rights Reserved.
   </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const faders = document.querySelectorAll('.fade-in-section');
+      const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+
+      faders.forEach(section => {
+        observer.observe(section);
+      });
+    });
+  </script>
 </body>
 </html>
